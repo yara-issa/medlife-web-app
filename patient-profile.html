@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedLife - Patient Profile</title>
+    <link rel="stylesheet" href="css/patient-profile.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <ul class="nav-icons">
+                <li title="Overview" class="nav-item active" data-target="overview-section"><img src="images/icons/home.png" class="nav-img"></li>
+                <li title="History" class="nav-item" data-target="history-section"><img src="images/icons/time-past.png" class="nav-img"></li>
+                <li title="Medications" class="nav-item" data-target="meds-section"><img src="images/icons/capsules.png" class="nav-img"></li>
+                <li title="Allergies" class="nav-item" data-target="allergies-section"><img src="images/icons/exclamation.png" class="nav-img"></li>
+                <li title="Results" class="nav-item" data-target="results-section"><img src="images/icons/memo-circle-check.png" class="nav-img"></li>
+                
+            </ul>
+            <div class="logout-icon" onclick="localStorage.clear(); location.href='login.html'">
+                <img src="images/icons/exit.png" class="nav-img">
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="breadcrumb">
+                    <span>Patients</span> / <strong id="current-page-name">Loading...</strong>
+                </div>
+            </header>
+
+            <div id="overview-section" class="content-section active">
+                <section class="patient-banner card">
+                    <div class="patient-info-main">
+                        <img src="" class="profile-pic">
+                        <div class="details">
+                            <h1>--- <span class="gender-tag">---</span></h1>
+                            <p class="patient-id">MedLife ID: #--- • Registered ---</p>
+                            <div class="contact-fast">
+                                <span><img src="images/icons/phone-flip.png" class="icon-xs"> ---</span>
+                                <span><img src="images/icons/marker.png" class="icon-xs"> Beirut, Lebanon</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vitals-row">
+                        <div class="vital-card"><label>Weight</label><p>-- <span>kg</span></p></div>
+                        <div class="vital-card"><label>Height</label><p>-- <span>cm</span></p></div>
+                        <div class="vital-card"><label>Age</label><p>--</p></div>
+                        <div class="vital-card"><label>Blood Type</label><p>--</p></div>
+                    </div>
+                </section>
+
+                <div class="dashboard-grid">
+                    <div class="grid-col main-col">
+                        <section class="card widget">
+                            <div class="widget-header">
+                                <h3><img src="images/icons/capsules.png" class="icon-sm"> Active Medications</h3>
+                                <a href="javascript:void(0)" class="view-all" data-target="meds-section">View All</a>
+                            </div>
+                            <div id="active-meds-list" class="med-grid"></div>
+                        </section>
+
+                        <section class="card widget">
+                            <div class="widget-header">
+                                <h3><img src="images/icons/memo-circle-check.png" class="icon-sm"> Recent Lab Results</h3>
+                                <a href="javascript:void(0)" class="view-all" data-target="results-section">View All</a>
+                            </div>
+                            <table class="data-table" id="recent-results-table"></table>
+                        </section>
+                    </div>
+
+                    <div class="grid-col side-col">
+                        <section class="card widget">
+                            <div class="widget-header">
+                                <h3>Clinical Notes</h3>
+                                <a href="javascript:void(0)" class="view-all" data-target="history-section">View All</a>
+                            </div>
+                            <div id="recent-notes-list"></div>
+                        </section>
+
+                        <section class="card widget">
+                            <div class="widget-header">
+                                <h3>Allergies</h3>
+                                <a href="javascript:void(0)" class="view-all" data-target="allergies-section">View All</a>
+                            </div>
+                            <div id="allergies-list" class="tags"></div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+           <div id="history-section" class="content-section">
+    <section class="card">
+        <h2>Medical History</h2>
+        <div id="history-section-content"></div>
+    </section>
+</div>
+
+<div id="meds-section" class="content-section">
+    <section class="card">
+        <h2>Medication Management</h2>
+        <div id="medication-management-content" class="med-grid"></div>
+    </section>
+</div>
+
+<div id="allergies-section" class="content-section">
+    <section class="card">
+        <h2>Detailed Allergy Report</h2>
+        <div id="allergy-report-content" class="tags"></div>
+    </section>
+</div>
+
+<div id="results-section" class="content-section">
+    <section class="card">
+        <h2>Lab Test Repository</h2>
+        <div id="lab-repository-content"></div>
+    </section>
+</div>
+
+<div id="files-section" class="content-section">
+    <section class="card">
+        <h2>Patient Documents</h2>
+        <div id="files-section-content">
+            <p style="color:#999; padding:15px;">Secure document storage coming soon.</p>
+        </div>
+    </section>
+</div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/patient-profile.js"></script>
+</body>
+</html>

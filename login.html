@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedLife - Login</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+    <div class="login-container">
+
+        <!-- Left Illustration Section -->
+        <div class="illustration-section">
+            <div class="circle-bg">
+                <img src="images/doctors-login-background.png" class="hero-img" alt="Medical Team">
+            </div>
+        </div>
+
+        <!-- Right Form Section -->
+        <div class="form-section">
+            <div class="login-box">
+
+                <!-- Custom Logo -->
+                <div class="custom-logo">
+                    <img src="images/logo.png" alt="MedLife Logo">
+                </div>
+
+                <h2>Welcome Back</h2>
+                <p>Please enter your ID to continue</p>
+
+                <form id="loginForm">
+                    <div class="input-group">
+                        <label for="patientID">ID</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="text" 
+                                id="patientID" 
+                                placeholder="xxxx xxxx xxxx" 
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <button type="submit" class="login-btn">LOGIN</button>
+                </form>
+                <div class="signup-footer">
+                    <p>Don't have an account?</p>
+                    <div class="signup-links">
+                        <a href="signup.html">Signup</a>
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase-config.js"></script>
+</body>
+</html>

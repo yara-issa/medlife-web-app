@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Terminal | MedLife</title>
+    <link rel="stylesheet" href="css/style.css"> <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        .lab-container { padding: 40px; max-width: 1000px; margin: auto; }
+        .req-card { background: white; padding: 20px; border-radius: 12px; border: 1px solid #eee; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .req-info h3 { margin: 0; color: #333; }
+        .req-info p { margin: 5px 0; color: #666; font-size: 0.9rem; }
+        .upload-area { display: flex; gap: 10px; }
+        .btn-upload { background: #008b8b; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+        .btn-upload:disabled { background: #ccc; }
+        .status-badge { background: #e6f4f1; color: #008b8b; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+    </style>
+</head>
+<body style="background: #f4f7f6;">
+
+    <div class="lab-container">
+        <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+            <h1>Lab Technician Terminal</h1>
+            <button onclick="location.reload()" style="background: none; border: 1px solid #008b8b; color: #008b8b; padding: 5px 15px; border-radius: 4px; cursor: pointer;">Refresh List</button>
+        </header>
+
+        <div id="requests-list">
+            <p>Loading pending requests...</p>
+        </div>
+    </div>
+
+    <script src="js/supabase-config.js"></script>
+    <script src="js/lab-tech.js"></script>
+</body>
+</html>

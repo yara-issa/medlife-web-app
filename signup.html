@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedLife - Join Us</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/signup.css">
+</head>
+<body>
+
+    <div class="login-container">
+
+        <div class="illustration-section">
+            <div class="circle-bg">
+                <img src="images/doctors-login-background.png" class="hero-img" alt="Medical Team">
+            </div>
+        </div>
+
+        <div class="form-section">
+            <div class="login-box">
+
+                <div class="custom-logo">
+                    <img src="images/logo.png" alt="MedLife Logo">
+                </div>
+
+                <h2>Join MedLife</h2>
+                <p>Please select your account type to continue</p>
+
+                <div class="selection-container">
+                    <div class="selection-card" onclick="selectRole('patient')">
+                        <div class="icon-circle">👤</div>
+                        <div class="selection-text">
+                            <h3>Patient</h3>
+                            <span>Book appointments & view records</span>
+                        </div>
+                    </div>
+
+                    <div class="selection-card" onclick="selectRole('professional')">
+                        <div class="icon-circle">🏥</div>
+                        <div class="selection-text">
+                            <h3>Medical Professional</h3>
+                            <span>Doctors, Nurses, & Pharmacists</span>
+                        </div>
+                    </div>
+                    <div class="selection-card" onclick="selectRole('facility')">
+                        <div class="icon-circle">🏢</div>
+                        <div class="selection-text">
+                            <h3>Medical Facility</h3>
+                            <span>Hospitals, Clinics & Labs</span>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="footer-links">
+                    <p>Already have an account? <a href="login.html">Login here</a></p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/signup.js"></script>
+</body>
+</html>

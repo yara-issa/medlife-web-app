@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedLife Receptionist - Schedule</title>
+    <link rel="stylesheet" href="css/receptionist.css">
+</head>
+<body>
+    <nav class="sidebar">
+        
+        <ul class="nav-icons">
+            <li class="active"><img src="images/calendar.png" class="nav-img" alt="Schedule"></li>
+        </ul>
+        <div class="logout-icon" onclick="logout()">
+            <img src="https://cdn-icons-png.flaticon.com/512/1828/1828427.png" class="nav-img" alt="Logout">
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <main class="main-content">
+            <header class="top-header">
+                <div class="breadcrumb">Receptionist Dashboard / <strong>Schedule Management</strong></div>
+            </header>
+
+            <div class="content-section active">
+                <div class="card">
+                    <div class="widget-header">
+                        <h2 id="managing-dr-text">Loading Schedule...</h2>
+                        <div class="action-btns">
+                            <button class="filter-btn active" onclick="loadSchedule()">Refresh Schedule</button>
+                        </div>
+                    </div>
+
+                    <div class="schedule-grid" id="weekly-grid">
+                        <div class="hour-label">Time</div>
+                        <div class="day-header">Mon</div>
+                        <div class="day-header">Tue</div>
+                        <div class="day-header">Wed</div>
+                        <div class="day-header">Thu</div>
+                        <div class="day-header">Fri</div>
+                        </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="bookModal" class="modal">
+        <div class="modal-content card">
+            <h3>Book Appointment</h3>
+            <p id="selected-slot-info" style="color: var(--text-muted); margin: 10px 0;"></p>
+            
+            <div class="info-box" style="margin-bottom: 20px;">
+                <label>Select Patient</label>
+                <select id="patientSelect" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ddd; margin-top: 5px;">
+                    <option value="">-- Choose from List --</option>
+                </select>
+            </div>
+
+            <div class="modal-footer" style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="filter-btn" onclick="closeModal()">Cancel</button>
+                <button class="filter-btn active" onclick="confirmBooking()" style="background: var(--primary-color); color: white;">Confirm Booking</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/receptionist-logic.js"></script>
+</body>
+</html>

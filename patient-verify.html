@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedLife - Verify Account</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    
+    <link rel="stylesheet" href="css/verify.css">
+</head>
+<body>
+    <div class="verify-container">
+        <div class="verify-card">
+            <div class="logo-section">
+                <img src="images/logo.png" alt="MedLife Logo" class="verify-logo">
+            </div>
+            <h2>Verify Your Number</h2>
+            <p>We've sent a 5-digit code to your WhatsApp.</p>
+            
+            <form id="otp-form">
+                <div class="otp-inputs">
+                    <input type="text" maxlength="1" pattern="\d*" inputmode="numeric">
+                    <input type="text" maxlength="1" pattern="\d*" inputmode="numeric">
+                    <input type="text" maxlength="1" pattern="\d*" inputmode="numeric">
+                    <input type="text" maxlength="1" pattern="\d*" inputmode="numeric">
+                    <input type="text" maxlength="1" pattern="\d*" inputmode="numeric">
+                </div>
+                
+                <button type="submit" class="verify-btn">Verify & Proceed</button>
+            </form>
+
+            <div class="timer-section">
+                Code expires in: <span id="timer">02:00</span>
+            </div>
+            
+            <p class="resend-text">Didn't get the code? <a href="#" id="resend-btn" class="disabled">Resend Code</a></p>
+        </div>
+    </div>
+
+    <script src="js/verify.js"></script>
+</body>
+</html>

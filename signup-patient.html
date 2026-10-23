@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedLife - Patient Registration</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/patient-signup.css">
+</head>
+<body>
+
+    <div class="login-container wider-card">
+        <div class="illustration-section">
+            <div class="circle-bg">
+                <img src="images/doctors-login-background.png" class="hero-img" alt="Medical Team">
+            </div>
+        </div>
+
+        <div class="form-section scrollable">
+            <div class="login-box large-box">
+                <div class="custom-logo">
+                    <img src="images/logo.png" alt="MedLife Logo">
+                </div>
+
+                <h2>Create Patient Profile</h2>
+                <p>Complete your medical registration</p>
+
+                <form id="patientSignupForm">
+                    <div class="form-step">
+                        <h4 class="section-title">Personal Information</h4>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label>First Name</label>
+                                <input type="text" placeholder="Name" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Father's Name</label>
+                                <input type="text" placeholder="Father" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Family Name</label>
+                            <input type="text" placeholder="Family" required>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label>Birthday</label>
+                                <input type="date" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Place of Birth</label>
+                                <input type="text" placeholder="City, Country" required>
+                            </div>
+                        </div>
+
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label>Nationality</label>
+                                <select name="nationality" required>
+                                    <option value="" disabled selected>Select nationality</option>
+                                    <option value="lebanese">Lebanese</option>
+                                    <option value="syrian">Syrian</option>
+                                    <option value="turkish">Turkish</option>
+                                    <option value="greek">Greek</option>
+                                    <option value="jordanian">Jordanian</option>
+                                    <option value="palestinian">Palestinian</option>
+                                    <option value="iraqi">Iraqi</option>
+                                    <option value="egyptian">Egyptian</option>
+                                    <option value="saudi">Saudi</option>
+                                    <option value="emirati">Emirati</option>
+                                    <option value="qatari">Qatari</option>
+                                    <option value="kuwaiti">Kuwaiti</option>
+                                    <option value="cypriot">Cypriot</option>
+                                    <option value="moroccan">Moroccan</option>
+                                    <option value="tunisian">Tunisian</option>
+                                    <option value="algerian">Algerian</option>
+                                    <option value="yemeni">Yemeni</option>
+                                    <option value="iranian">Iranian</option>
+                                    <option value="american">American</option>
+                                    <option value="french">French</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>Gender</label>
+                                <select name="gender" required>
+                                    <option value="" disabled selected>Select gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Personal Phone Number</label>
+                           <input type="tel" id="whatsappNumber" placeholder="+961 xx xxx xxx" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Email Address</label>
+                            <input type="email" id="patientEmail" placeholder="example@mail.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-step">
+                        <h4 class="section-title">Medical History</h4>
+                        <div class="input-group">
+                            <label>Allergies</label>
+                            <textarea placeholder="List any allergies (e.g., Penicillin, Peanuts)"></textarea>
+                        </div>
+                        <div class="input-group">
+                            <label>Current Medications</label>
+                            <textarea placeholder="List medications you are currently taking"></textarea>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label>Blood Type</label>
+                                <select id="bloodTypeSelect">
+                                    <option>A+</option><option>A-</option>
+                                    <option>B+</option><option>B-</option>
+                                    <option>O+</option><option>O-</option>
+                                    <option>AB+</option><option>AB-</option>
+                                    <option>Unknown</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label>Weight (kg)</label>
+                                <input type="number" id="patientWeight" placeholder="e.g. 75" min="2" max="400" step="0.1" required>
+                                <small class="error-msg" id="weightError"></small>
+                            </div>
+
+                            <div class="input-group">
+                                <label>Height (cm)</label>
+                                <input type="number" id="patientHeight" placeholder="e.g. 175" min="40" max="250" required>
+                                <small class="error-msg" id="heightError"></small>
+                            </div>
+                            <div class="input-group">
+                                <label>Smoking Status</label>
+                                <select>
+                                    <option>Non-smoker</option>
+                                    <option>Occasional</option>
+                                    <option>Regular smoker</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-step">
+                        <h4 class="section-title">Family History</h4>
+                        <p class="small-label">Has any immediate family member had:</p>
+                        <div class="checkbox-grid">
+                            <label class="check-item"><input type="checkbox"> Cancer</label>
+                            <label class="check-item"><input type="checkbox"> Diabetes</label>
+                            <label class="check-item"><input type="checkbox"> Heart Disease</label>
+                            <label class="check-item"><input type="checkbox"> Hypertension</label>
+                            <label class="check-item"><input type="checkbox"> Asthma</label>
+                            <label class="check-item"><input type="checkbox"> Kidney Disease</label>
+                        </div>
+                        <div class="input-group">
+                            <label>Other Family Medical Issues</label>
+                            <textarea placeholder="Please describe..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-step">
+                        <h4 class="section-title">Emergency Contact</h4>
+                        <div class="input-group">
+                            <label>Contact Name</label>
+                            <input type="text" placeholder="Full Name" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Phone Number</label>
+                            <input type="tel" placeholder="+961 XX XXX XXX" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="login-btn">COMPLETE REGISTRATION</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="js/supabase-config.js"></script>
+
+<script src="js/patient-signup.js"></script>
+</body>
+</html> 

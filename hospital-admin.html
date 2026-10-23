@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedLife Admin - Hospital Management</title>
+    <link rel="stylesheet" href="css/hospital-admin.css">
+</head>
+<body> 
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="hospital-brand">
+                <h2 id="hospital-abbr">AUBMC</h2> 
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item active" data-target="manage-doctors-section">
+                    <img src="images/icons/hr-management.png" class="nav-icon" alt=""> Manage Doctors
+                </li>
+                <li class="nav-item" data-target="pending-requests-section">
+                    <img src="images/icons/email-pending.png" class="nav-icon" alt=""> Pending Requests <small class="badge">3</small>
+                </li>
+                <li class="nav-item logout-item" onclick="location.href='login.html'">
+                    <img src="images/icons/exit.png" class="nav-icon" alt=""> Logout
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <div id="manage-doctors-section" class="content-section active">
+                <header class="admin-header">
+                    <div>
+                        <h1>Doctor Management</h1>
+                        <p>Manage access and verify credentials for your facility.</p>
+                    </div>
+                   
+                </header>
+
+                <section class="admin-section">
+                    <h3 class="section-title">Active Medical Staff</h3>
+                    <div class="doctor-grid" id="doctorGrid">
+                        <div class="card doctor-mini-card">
+                            <img src="https://ui-avatars.com/api/?name=Dr+Hana&background=008b8b&color=fff" alt="Doc">
+                            <div class="doc-info">
+                                <h4>Dr. Hana Haddad</h4>
+                                <p>Pediatrics</p>
+                                <span class="status-active">Active</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="pending-requests-section" class="content-section">
+                <header class="admin-header">
+                    <div>
+                        <h1>Pending Requests</h1>
+                        <p>Review and verify new practitioners requesting access.</p>
+                    </div>
+                </header>
+
+                <section class="admin-section">
+                    <h3 class="section-title">Awaiting Approval</h3>
+                    <div class="card request-table-card">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Full Name</th>
+                                    <th>Role</th> <th>Specialty / Managed Dr.</th> <th>License / Phone</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Dr. Elias Mansour</td>
+                                    <td>Cardiology</td>
+                                    <td>8821/R</td>
+                                    <td><a href="#" class="view-link">View CV</a></td>
+                                    <td>
+                                        <div class="action-btns">
+                                            <button class="btn-approve">Approve</button>
+                                            <button class="btn-reject">Reject</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div id="doctorModal" class="modal">
+        <div class="modal-content">
+            <h3>Manually Add Practitioner</h3>
+            <form id="manualDocForm">
+                <div class="input-group"><input type="text" placeholder="Full Name" required></div>
+                <div class="input-group"><input type="text" placeholder="Specialization" required></div>
+                <div class="input-group"><input type="text" placeholder="LOP License Number" required></div>
+                <div class="input-group"><input type="email" placeholder="Temporary Email Login" required></div>
+                <div class="modal-actions">
+                    <button type="button" onclick="closeModal()" class="btn-cancel">Cancel</button>
+                    <button type="submit" class="btn-save">Save Doctor</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/hospital-admin.js"></script>
+  
+</body>
+</html>

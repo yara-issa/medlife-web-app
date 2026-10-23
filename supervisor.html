@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supervisor Master Portal | MedLife</title>
+    <link rel="stylesheet" href="css/doctor-profile.css"> <link rel="stylesheet" href="css/supervisor.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <ul class="nav-icons">
+                <li title="Hospitals" class="nav-item active" data-type="hospitals">
+                    <img src="images/icons/hospital.png" class="nav-img">
+                </li>
+                <li title="Pharmacies" class="nav-item" data-type="pharmacies">
+                    <img src="images/icons/pharmacy-symbol.png" class="nav-img">
+                </li>
+                <li title="Clinics" class="nav-item" data-type="clinics">
+                    <img src="images/icons/hospital-user.png" class="nav-img">
+                </li>
+                <li title="Others" class="nav-item" data-type="others">
+                    <img src="images/icons/user-md.png" class="nav-img">
+                </li>
+            </ul>
+            <div class="logout-icon" onclick="location.href='login.html'">
+                <img src="images/icons/exit.png" class="nav-img">
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="breadcrumb">
+                    <span id="root-level">Network Intelligence</span> / 
+                    <span id="layer-1" class="drill-crumb">Hospitals</span> 
+                    <span id="layer-2" class="drill-crumb"></span>
+                    <span id="layer-3" class="drill-crumb"></span>
+                </div>
+                <h1 id="view-title">Hospital Network</h1>
+            </header>
+
+            <div class="search-container card">
+                <div class="search-box">
+                    <img src="images/icons/search.png" class="search-icon">
+                    <input type="text" id="masterSearch" placeholder="Search for hospitals, doctors, or license IDs...">
+                </div>
+            </div>
+
+            <div id="master-grid" class="dashboard-grid-supervisor">
+                <div class="card entity-card" onclick="drillDown('LAU Rizk', 'hospital')">
+                    <div class="entity-info">
+                        <h3>LAU Medical Center - Rizk</h3>
+                        <p>Beirut, Lebanon</p>
+                    </div>
+                    <div class="entity-stats">
+                        <span><strong>142</strong> Doctors</span>
+                        <span><strong>2,400+</strong> Patients</span>
+                    </div>
+                </div>
+
+                <div class="card entity-card" onclick="drillDown('AUBMC', 'hospital')">
+                    <div class="entity-info">
+                        <h3>AUBMC</h3>
+                        <p>Hamra, Beirut</p>
+                    </div>
+                    <div class="entity-stats">
+                        <span><strong>210</strong> Doctors</span>
+                        <span><strong>5,000+</strong> Patients</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase-config.js"></script>
+
+    <script src="js/supervisor.js"></script>
+</body>
+</body>
+</html>

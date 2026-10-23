@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedLife Doctor - My Profile</title>
+    <link rel="stylesheet" href="css/doctor-profile.css">
+    <style>
+        /* Modal Styles */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; }
+        .modal-content { background: white; padding: 25px; border-radius: 12px; width: 400px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .modal-body input, .modal-body select { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 6px; }
+        .modal-footer { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+        .btn-confirm { background: #008b8b; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
+        .btn-cancel { background: #eee; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
+        .action-btns { display: flex; gap: 10px; }
+        .btn-add { background: #008b8b; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <ul class="nav-icons">
+                <li title="Practice Overview" class="nav-item active" data-target="overview-section">
+                    <img src="images/icons/home.png" class="nav-img">
+                </li>
+                <li title="My Patients" class="nav-item" data-target="patients-section">
+                    <img src="images/icons/users-alt.png" class="nav-img">
+                </li>
+                <li title="Credentials" class="nav-item" data-target="credentials-section">
+                    <img src="images/icons/degree-credential.png" class="nav-img">
+                </li>
+            </ul>
+            <div class="logout-icon" onclick="location.href='login.html'">
+                <img src="images/icons/exit.png" class="nav-img">
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="breadcrumb">
+                    <span>Medical Staff</span> / <strong id="current-page-name"></strong>
+                </div>
+            </header>
+
+            <div id="overview-section" class="content-section active">
+                <section class="doctor-banner card">
+                    <div class="doctor-info-main">
+                        <img src="https://ui-avatars.com/api/?name=Dr&background=e6f4f1&color=008b8b" 
+                            class="profile-pic" 
+                            id="doctor-profile-img" 
+                            alt="Doctor Profile">
+                        <div class="details">
+                            <h1><span id="doctor-name-span">...</span> <span class="specialty-tag" id="specialty-tag-span">...</span></h1>
+                        </div>
+                    </div>
+                    <div class="stats-row">
+                        <div class="stat-card"><label>Total Patients</label><p id="stat-total-patients">0</p></div>
+                        
+                </section>
+
+                <div class="dashboard-grid">
+                    <div class="grid-col main-col">
+                        <section class="card widget">
+                            <div class="widget-header">
+                                <h3><img src="images/icons/users-alt.png" class="icon-sm"> Recent Appointments</h3>
+                                <a href="javascript:void(0)" class="view-all">View List</a>
+                            </div>
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Patient Name</th>
+                                        <th>Time</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recent-patients-list"></tbody>
+                            </table>
+                        </section>
+                    </div>
+
+                    <div class="grid-col side-col">
+                        <section class="card widget">
+                            <div class="widget-header"><h3>Quick Info</h3></div>
+                            <div class="info-entry">
+                                <small>Degree</small>
+                                <p id="degree-text">Loading...</p>
+                            </div>
+                            <div class="info-entry" style="margin-top: 15px;">
+                                <small>License Status</small>
+                                <p id="license-status">Pending</p>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <div id="patients-section" class="content-section">
+                <section class="card">
+                    <div class="widget-header">
+                        <h2>Patient Directory</h2>
+                        <div class="action-btns">
+                            <button class="btn-add" onclick="openModal('addPatientModal')">+ Add Patient ID</button>
+                            <button class="btn-add" onclick="openModal('addApptModal')">+ New Appointment</button>
+                        </div>
+                    </div>
+                    <div class="widget-header" style="margin-top: 10px;">
+                        <span class="text-muted">0 Total Patients</span>
+                    </div>
+
+                    <div class="search-container">
+                        <div class="search-box">
+                            <img src="images/icons/search.png" class="search-icon">
+                            <input type="text" id="patientSearch" placeholder="Search patient by name or MRN...">
+                        </div>
+                    </div>
+
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>MRN Number</th>
+                                <th>Last Visit</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="full-patient-table"></tbody>
+                    </table>
+                </section>
+            </div>
+
+            <div id="addPatientModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header"><h3>Add Patient by ID</h3></div>
+                    <div class="modal-body">
+                        <input type="text" id="newPatientMedID" placeholder="Enter Patient MedLife ID (e.g. #4872)">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-cancel" onclick="closeModal('addPatientModal')">Cancel</button>
+                        <button class="btn-confirm" onclick="addNewPatient()">Add Patient</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="addApptModal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header"><h3>New Appointment</h3></div>
+                    <div class="modal-body">
+                        <label>Select Patient</label>
+                        <select id="apptPatientSelect"></select>
+                        <label>Appointment Date & Time</label>
+                        <input type="datetime-local" id="apptDateTime">
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn-cancel" onclick="closeModal('addApptModal')">Cancel</button>
+                        <button class="btn-confirm" onclick="scheduleAppointment()">Schedule</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="credentials-section" class="content-section">
+                <section class="card">
+                    <h2>Verification & Sign-in Info</h2>
+                    <div class="credential-grid">
+                        <div class="info-box"><label>Full Name</label><p id="cred-name">-</p></div>
+                        <div class="info-box"><label>Specialty</label><p id="cred-specialty">-</p></div>
+                       
+                        <div class="info-box"><label>LOP License</label><p id="cred-license">-</p></div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/doctor-profile.js"></script>
+</body>
+</html>

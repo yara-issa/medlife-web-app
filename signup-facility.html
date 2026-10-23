@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedLife - Facility Registration</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/signup.css">
+    <style>
+        /* --- EXTRA CSS INTEGRATED DIRECTLY --- */
+
+        /* Adjust container to the "wider-card" dimensions from previous pages */
+        .wider-card {
+            width: 1000px !important;
+            height: 650px !important;
+            display: flex !important;
+        }
+
+        /* Enable scrolling on the right side */
+        .form-section.scrollable {
+            overflow-y: auto;
+            display: block; /* Required for scrolling */
+            padding: 50px 40px;
+        }
+
+        /* Custom Scrollbar to match MedLife Teal */
+        .scrollable::-webkit-scrollbar {
+            width: 6px;
+        }
+        .scrollable::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .scrollable::-webkit-scrollbar-thumb {
+            background: #008b8b;
+            border-radius: 10px;
+        }
+
+        /* Medical Style Inputs (Teal border-left) */
+        .medical-input, .medical-select {
+            width: 100%;
+            padding: 10px;
+            background: #f1f8f8;
+            border: none;
+            border-left: 4px solid #008b8b;
+            border-radius: 4px;
+            outline: none;
+            font-size: 13px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        /* Section Titles for grouped info */
+        .section-title {
+            color: #008b8b;
+            border-bottom: 2px solid #e6f4f1;
+            margin: 25px 0 15px 0;
+            padding-bottom: 5px;
+            text-align: left;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Two-column layout for rows */
+        .input-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .input-row .input-group {
+            flex: 1;
+            margin-bottom: 0; /* Handled by row gap */
+        }
+
+        /* Layout Fix: Ensure logo and box stay centered in the scroll area */
+        .login-box.large-box {
+            margin: 0 auto;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container wider-card">
+        <div class="illustration-section">
+            <div class="circle-bg">
+                <img src="images/doctors-login-background.png" class="hero-img" alt="Hospital Building">
+            </div>
+        </div>
+
+        <div class="form-section scrollable">
+            <div class="login-box large-box">
+                
+                <div class="custom-logo">
+                    <img src="images/logo.png" alt="MedLife Logo">
+                </div>
+
+                <h2>Facility Registration</h2>
+                <p>Register your hospital or clinic to the network.</p>
+
+                <form id="facilitySignupForm">
+                    
+                    <h3 class="section-title">Facility Details</h3>
+                    
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label class="small-label">Facility Name</label>
+                            <input type="text" id="facilityName" class="medical-input" placeholder="e.g. AUBMC" required>
+                        </div>
+                        <div class="input-group">
+                            <label class="small-label">Type</label>
+                            <select id="facilityType" class="medical-select" required>
+                                <option value="hospital">Hospital</option>
+                                <option value="pharmacy">Pharmacy</option>
+                                <option value="clinic">Clinic</option>
+                                <option value="lab">Laboratory</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label class="small-label">Location</label>
+                            <input type="text" id="facilityLocation" class="medical-input" placeholder="City / Area" required>
+                        </div>
+                        <div class="input-group">
+                            <label class="small-label">Phone Number</label>
+                            <input type="tel" id="facilityPhone" class="medical-input" placeholder="+961 ..." required>
+                        </div>
+                    </div>
+
+                    <h3 class="section-title">Owner Information</h3>
+                    
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label class="small-label">Owner First Name</label>
+                            <input type="text" id="ownerFirst" class="medical-input" placeholder="First Name" required>
+                        </div>
+                        <div class="input-group">
+                            <label class="small-label">Family Name</label>
+                            <input type="text" id="ownerLast" class="medical-input" placeholder="Last Name" required>
+                        </div>
+                    </div>
+
+                    
+
+                    <button type="submit" class="login-btn" style="margin-top: 25px;">Register Facility</button>
+                </form>
+
+                <div class="footer-links" style="margin-top: 30px; padding-bottom: 20px;">
+                    <p><a href="signup.html">← Back to selection</a></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="js/supabase-config.js"></script>
+
+    <script src="js/signup-facility.js"></script>
+</body>
+</html>

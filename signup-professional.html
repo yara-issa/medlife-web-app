@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedLife - Professional Registration</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/patient-signup.css">
+</head>
+<body>
+
+    <div class="login-container wider-card">
+        <div class="illustration-section">
+            <div class="circle-bg">
+                <img src="images/doctors-login-background.png" class="hero-img" alt="Medical Team">
+            </div>
+        </div>
+
+        <div class="form-section scrollable">
+            <div class="login-box large-box">
+                <div class="custom-logo">
+                    <img src="images/logo.png" alt="MedLife Logo">
+                </div>
+
+                <h2>Professional Profile</h2>
+                <p>Register as a Medical Practitioner</p>
+
+                <form id="proSignupForm" enctype="multipart/form-data">
+                    <div class="form-step">
+                        <h4 class="section-title">Personal Information</h4>
+                        
+                        <div class="input-group">
+                            <label>Register As</label>
+                            <select id="roleSelect" required>
+                                <option value="doctor" selected>Doctor / Specialist</option>
+                                <option value="receptionist">Receptionist</option>
+                                <option value="lab_tech">Lab Technician</option> </select>
+                            </select>
+                        </div>
+
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label>First Name</label>
+                                <input type="text" placeholder="Dr. Name" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Family Name</label>
+                                <input type="text" placeholder="Family" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Personal Phone Number</label>
+                            <input type="tel" placeholder="+961 XX XXX XXX" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Nationality</label>
+                            <select name="nationality" required>
+                                <option value="lebanese" selected>Lebanese</option>
+                                <option value="french">French</option>
+                                <option value="american">American</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-step">
+                        <h4 class="section-title">Professional Details</h4>
+                        
+                        <div class="input-group" id="specialtyGroup">
+                            <label>Primary Specialization</label>
+                            <select id="specialtySelect">
+                                <option value="" disabled selected>Select Specialty</option>
+                                <option>Cardiology</option>
+                                <option>Pediatrics</option>
+                                <option>Neurology</option>
+                                <option>General Surgery</option>
+                                <option>Internal Medicine</option>
+                                <option>Dermatology</option>
+                                <option>Psychiatry</option>
+                                <option>Orthopedics</option>
+                                <option>Ophthalmology</option>
+                                <option>Otolaryngology (ENT)</option>
+                                <option>Obstetrics and Gynecology (OB/GYN)</option>
+                                <option>Urology</option>
+                                <option>Radiology</option>
+                                <option>Anesthesiology</option>
+                                <option>Emergency Medicine</option>
+                                <option>Family Medicine</option>
+                                <option>Endocrinology</option>
+                                <option>Gastroenterology</option>
+                                <option>Hematology</option>
+                                <option>Nephrology</option>
+                                <option>Oncology</option>
+                                <option>Pulmonology</option>
+                                <option>Rheumatology</option>
+                                <option>Infectious Disease</option>
+                                <option>Plastic Surgery</option>
+                                <option>Vascular Surgery</option>
+                                <option>Neurosurgery</option>
+                                <option>Cardiothoracic Surgery</option>
+                                <option>Pathology</option>
+                                <option>Physical Medicine & Rehabilitation</option>
+                                <option>Nurse</option>
+                                <option>Pharmacist</option>
+                                <option>Physiotherapist</option>
+                                <option>Psychologist</option>
+                                <option>Paramedic</option>
+                            </select>
+                        </div>
+
+                        <div id="licenseGroup" class="input-group">
+                            <label>Syndicate License Number (LOP)</label>
+                            <input type="text" id="licenseInput" placeholder="e.g. 12345/R" >
+                        </div>
+
+                        <div class="input-group">
+                            <label>Primary Hospital / Medical Center</label>
+                            <select id="hospitalSelect" required>
+                                <option value="" disabled selected>Select Hospital</option>
+                                </select>
+                        </div>
+
+                        <div id="receptionistDoctorField" style="display: none; background: #f0f7f6; padding: 15px; border-radius: 8px; margin-top: 10px; margin-bottom: 20px; border: 1px solid #008b8b;">
+                            <div class="input-group">
+                                <label>Assign to Specific Doctor</label>
+                                <select id="doctorSelect">
+                                    <option value="" disabled selected>Select Hospital First</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-step">
+                        <h4 class="section-title">Documentation</h4>
+                        <div class="input-group">
+                            <label id="cvLabel">Upload Curriculum Vitae (CV)</label>
+                            <input type="file" id="cvUpload" accept=".pdf,.doc,.docx" required>
+                            <p class="small-label">PDF or Word format only.</p>
+                        </div>
+                        <div class="input-group">
+                            <label>Upload Lebanese ID or Passport</label>
+                            <div class="file-upload-wrapper">
+                                <input type="file" id="idUpload" name="id_document" accept=".pdf,.jpg,.jpeg,.png" required>
+                                <small class="file-hint">Accepted formats: PDF, JPG, PNG</small>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label>Brief Bio / Professional Summary</label>
+                            <textarea placeholder="Tell patients about your experience..."></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="login-btn">REQUEST ACCESS</button>
+                    <p class="small-label" style="margin-top: 15px; text-align: center;">
+                        Account verification usually takes 24-48 hours.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/pro-signup.js"></script>
+</body>
+</html>
+
+<script>
