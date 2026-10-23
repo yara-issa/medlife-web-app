@@ -1,0 +1,134 @@
+    /* Expand the main container for the extra info */
+    .wider-card {
+        width: 1000px;
+        height: 650px;
+        margin-top: 10%;
+        
+    }
+
+    /* Allow scrolling on the form side if content is long */
+    .scrollable {
+        overflow-y: auto;
+        align-items: flex-start !important;
+        padding-top: 40px !important;
+    }
+
+    .large-box {
+        max-width: 400px !important;
+        
+    }
+
+    .section-title {
+        color: #008b8b;
+        border-bottom: 2px solid #e6f4f1;
+        margin: 20px 0 15px 0;
+        padding-bottom: 5px;
+        text-align: left;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    /* Layout for side-by-side inputs */
+    .input-row {
+        display: flex;
+        gap: 15px;
+    }
+
+    .input-row .input-group {
+        flex: 1;
+    }
+
+    /* Specific styling for medical fields */
+    textarea, select {
+        width: 100%;
+        padding: 10px;
+        background: #f1f8f8;
+        border: none;
+        border-left: 4px solid #008b8b;
+        border-radius: 4px;
+        outline: none;
+        font-size: 13px;
+        margin-top: 5px;
+    }
+
+    textarea {
+        height: 60px;
+        resize: none;
+    }
+
+    /* Family History Grid */
+    /* Family History Grid - Fixed uneven columns */
+    .checkbox-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Forces exactly two equal columns */
+        gap: 12px 20px; /* 12px vertical, 20px horizontal */
+        text-align: left;
+        margin-bottom: 20px;
+        background: #fdfdfd;
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    .check-item {
+        font-size: 13px;
+        color: #555;
+        display: flex;
+        align-items: center; /* Vertically centers checkbox with text */
+        gap: 10px;
+        cursor: pointer;
+        transition: color 0.2s ease;
+    }
+
+    .check-item:hover {
+        color: #008b8b;
+    }
+
+    /* Make checkboxes look consistent */
+    .check-item input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        accent-color: #008b8b; /* Colors the checkbox MedLife Teal */
+        margin: 0; /* Removes default browser margins that cause misalignment */
+    }
+
+    .small-label {
+        font-size: 12px;
+        font-weight: 600;
+        color: #666;
+        text-align: left;
+        margin-bottom: 12px;
+        display: block;
+    }
+    /* Styling for the File Input */
+    input[type="file"] {
+        padding: 8px;
+        background: #f1f8f8;
+        border: 2px dashed #008b8b;
+        cursor: pointer;
+    }
+
+    /* Specific styling for the Bio Textarea */
+    textarea {
+        height: 100px; /* More space for a doctor's bio */
+    }
+
+    /* Adjust card height for pro fields */
+    .wider-card {
+        height: 780px; 
+    }
+    #otherHospitalFields {
+        border-left: 4px solid #008b8b;
+        animation: fadeIn 0.4s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Ensure inputs inside the 'other' box look consistent */
+    #otherHospitalFields .input-group label {
+        color: #333; /* Darker label for contrast against the light teal background */
+    }

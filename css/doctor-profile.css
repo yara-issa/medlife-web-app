@@ -1,0 +1,123 @@
+    :root {
+        --primary-color: #008b8b;
+        --accent-hover: #007272;
+        --success: #27ae60;
+        --danger: #d63031;
+        --bg-light: #f4f7f6;
+        --text-main: #2d3436;
+        --text-muted: #95a5a6;
+        --white: #ffffff;
+    }
+
+    /* Base Styles */
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+    body { background: var(--bg-light); color: var(--text-main); overflow-x: hidden; }
+
+    /* Sidebar Navigation */
+    .sidebar {
+        width: 80px;
+        background: var(--primary-color);
+        height: 100vh;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+        z-index: 100;
+    }
+
+    .nav-icons { list-style: none; flex-grow: 1; }
+    .nav-icons li { 
+        padding: 12px; border-radius: 12px; cursor: pointer; margin-bottom: 15px; transition: 0.3s; 
+    }
+    .nav-icons li.active, .nav-icons li:hover { background: rgba(255,255,255,0.2); }
+    .nav-img { width: 24px; height: 24px; filter: brightness(0) invert(1); }
+    .logout-icon { cursor: pointer; padding-bottom: 20px; opacity: 0.7; transition: 0.3s; }
+    .logout-icon:hover { opacity: 1; }
+
+    /* Main Content Layout */
+    .main-content { margin-left: 80px; width: calc(100% - 80px); padding: 30px 50px; }
+    .top-header { margin-bottom: 30px; }
+    .breadcrumb { font-size: 14px; color: var(--text-muted); }
+
+    /* Card & Banner */
+    .card { background: var(--white); border-radius: 16px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); margin-bottom: 25px; }
+    .doctor-banner { display: flex; justify-content: space-between; align-items: center; border-left: 6px solid var(--primary-color); }
+    .doctor-info-main { display: flex; align-items: center; gap: 20px; }
+    .profile-pic { border-radius: 50%; border: 4px solid #e6f4f1; width: 100px; height: 100px; object-fit: cover; }
+    .specialty-tag { font-size: 12px; background: #e6f4f1; color: var(--primary-color); padding: 4px 12px; border-radius: 20px; margin-left: 10px; font-weight: 500; }
+
+    /* Dashboard Widgets */
+    .dashboard-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 25px; }
+    .stats-row { display: flex; gap: 30px; }
+    .stat-card { text-align: right; }
+    .stat-card label { display: block; font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: bold; }
+    .stat-card p { font-size: 24px; font-weight: 700; color: var(--primary-color); }
+
+    /* Table Styling */
+    .data-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+    .data-table th { text-align: left; font-size: 12px; color: var(--text-muted); padding-bottom: 10px; border-bottom: 1px solid #eee; }
+    .data-table td { padding: 15px 0; border-bottom: 1px solid #f9f9f9; font-size: 14px; }
+    .status-normal { color: var(--success); font-weight: 600; }
+    .status-alert { color: #e67e22; font-weight: 600; }
+
+    /* Pretty Search Bar */
+    .search-container { display: flex; justify-content: space-between; align-items: center; margin: 20px 0; gap: 15px; }
+    .search-box { position: relative; flex-grow: 1; display: flex; align-items: center; background: #f1f5f9; padding: 0 15px; border-radius: 12px; border: 1px solid transparent; transition: 0.3s; }
+    .search-icon { width: 18px; height: 18px; opacity: 0.4; }
+    .search-box input { width: 100%; padding: 14px 10px; border: none; background: transparent; outline: none; font-size: 14px; }
+    .search-box:focus-within { background: white; border-color: var(--primary-color); box-shadow: 0 4px 12px rgba(0,139,139,0.1); }
+
+    .filter-btn { padding: 10px 20px; border-radius: 10px; border: none; background: #eef2f3; color: var(--text-muted); font-size: 13px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+    .filter-btn.active, .filter-btn:hover { background: var(--primary-color); color: white; }
+
+    /* Credentials UI */
+    .credential-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .info-box { background: #f8fafb; padding: 15px; border-radius: 10px; border-left: 3px solid #ddd; }
+    .info-box label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; }
+    .info-box p { font-weight: 600; margin-top: 5px; }
+
+    /* SPA Animations */
+    .content-section { display: none; animation: slideUp 0.3s ease-out; }
+    .content-section.active { display: block; }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+    .view-all { color: var(--primary-color); text-decoration: none; font-weight: bold; font-size: 13px; cursor: pointer; }
+    /* Update the Widget Header to push "View All" to the right */
+.widget-header {
+    display: flex;
+    justify-content: space-between; /* This pushes the title and 'View List' apart */
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Style the icon inside the header */
+.icon-sm {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+    opacity: 0.8;
+}
+
+/* Ensure the title inside the header stays aligned with the icon */
+.widget-header h3 {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: var(--text-main);
+}
+
+/* Style the info-entry in the side column */
+.info-entry small {
+    display: block;
+    color: var(--text-muted);
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+
+.info-entry p {
+    font-weight: 600;
+    color: var(--text-main);
+}

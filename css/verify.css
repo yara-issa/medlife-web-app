@@ -1,0 +1,85 @@
+:root {
+    --primary-red: #d63031;
+    --accent-red: #b02626;
+    --bg-light: #fdfcfc;
+    --text-gray: #636e72;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+
+body { 
+    background: var(--bg-light); 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;
+}
+
+.verify-container { width: 100%; max-width: 400px; padding: 20px; }
+
+.verify-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: center;
+    border: 1px solid #f1f1f1;
+}
+
+.verify-logo { width: 80px; margin-bottom: 20px; }
+
+h2 { color: #2d3436; margin-bottom: 10px; font-size: 24px; }
+p { color: var(--text-gray); font-size: 14px; margin-bottom: 30px; }
+
+/* OTP Input Boxes */
+.otp-inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.otp-inputs input {
+    width: 50px;
+    height: 60px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    color: var(--primary-red);
+    transition: all 0.3s;
+}
+
+.otp-inputs input:focus {
+    border-color: var(--primary-red);
+    box-shadow: 0 0 8px rgba(214, 48, 49, 0.2);
+    outline: none;
+}
+
+.verify-btn {
+    width: 100%;
+    padding: 15px;
+    background: var(--primary-red);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.verify-btn:hover { background: var(--accent-red); transform: translateY(-2px); }
+
+.timer-section {
+    margin-top: 25px;
+    font-size: 13px;
+    color: var(--text-gray);
+}
+
+#timer { font-weight: bold; color: var(--primary-red); }
+
+.resend-text { margin-top: 15px; font-size: 13px; }
+.resend-text a { color: var(--primary-red); text-decoration: none; font-weight: bold; }
+.resend-text a.disabled { color: #ccc; cursor: not-allowed; }

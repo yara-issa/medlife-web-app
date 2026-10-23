@@ -1,0 +1,67 @@
+/* supervisor.css */
+
+/* Custom Grid for many entities */
+.dashboard-grid-supervisor {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.entity-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 160px;
+}
+
+.entity-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+    box-shadow: 0 10px 25px rgba(0, 139, 139, 0.1);
+}
+
+.entity-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.entity-info p {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.entity-stats {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+}
+
+.drill-crumb {
+    cursor: pointer;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.drill-crumb:not(:empty)::before {
+    content: " / ";
+    color: var(--text-muted);
+    margin: 0 5px;
+}
+
+/* Specific styling for Doctor Cards in the drill-down */
+.doctor-row-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.doctor-row-card img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}

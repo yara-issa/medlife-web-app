@@ -1,0 +1,318 @@
+/* Universal MedLife Palette */
+:root {
+    --primary-color: #008b8b; /* MedLife Teal */
+    --accent-hover: #007272;
+    --danger: #d63031;
+    --success: #27ae60;
+    --bg-light: #f4f7f6;
+    --text-dark: #2d3436;
+}
+
+/* Base Reset */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+body { 
+    background: var(--bg-light); 
+    color: var(--text-dark); 
+}
+
+.dashboard-container { 
+    display: flex; 
+    width: 100%; 
+    min-height: 100vh; 
+}
+
+/* --- SIDEBAR NAVIGATION --- */
+.sidebar {
+    width: 260px;
+    background: var(--primary-color);
+    color: white;
+    padding: 40px 20px;
+    position: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.hospital-brand { 
+    text-align: center; 
+    margin-bottom: 40px; 
+}
+
+.admin-logo { 
+    width: 120px; 
+    height: auto; 
+    border-radius: 8px; 
+}
+
+.nav-links { 
+    list-style: none; 
+}
+
+.nav-item { 
+    padding: 15px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    display: flex; 
+    align-items: center; 
+    gap: 12px; 
+    transition: 0.3s;
+    margin-bottom: 5px;
+    color: white;
+    font-size: 15px;
+}
+
+/* Custom Icon Styling */
+.nav-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    /* This filter makes black/dark icons pure white */
+    filter: brightness(0) invert(1); 
+}
+
+.nav-item:hover, .nav-item.active { 
+    background: rgba(255, 255, 255, 0.2); 
+}
+
+.badge { 
+    background: var(--danger); 
+    padding: 2px 8px; 
+    border-radius: 10px; 
+    font-size: 11px; 
+    margin-left: auto; 
+    font-weight: bold; 
+    color: white;
+}
+
+/* --- MAIN CONTENT AREA --- */
+.main-content { 
+    margin-left: 260px; 
+    flex-grow: 1; 
+    padding: 40px; 
+}
+
+/* SPA Section Visibility */
+.content-section { 
+    display: none; 
+}
+
+.content-section.active { 
+    display: block; 
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.admin-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 40px; 
+}
+
+.admin-header h1 {
+    font-size: 24px;
+}
+
+.admin-header p {
+    color: #888;
+    font-size: 14px;
+}
+
+.section-title { 
+    font-size: 12px; 
+    color: #aaa; 
+    text-transform: uppercase; 
+    margin-bottom: 20px; 
+    letter-spacing: 1px; 
+    font-weight: bold;
+}
+
+/* --- CARDS & TABLES --- */
+.card { 
+    background: white; 
+    border-radius: 12px; 
+    padding: 25px; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
+}
+
+.admin-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+}
+
+.admin-table th { 
+    text-align: left; 
+    padding: 12px; 
+    color: #aaa; 
+    font-size: 11px; 
+    text-transform: uppercase;
+    border-bottom: 1px solid #eee; 
+}
+
+.admin-table td { 
+    padding: 18px 12px; 
+    font-size: 14px; 
+    border-bottom: 1px solid #f9f9f9; 
+}
+
+.view-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.view-link:hover {
+    text-decoration: underline;
+}
+
+/* --- DOCTOR GRID --- */
+.doctor-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+    gap: 25px; 
+}
+
+.doctor-mini-card { 
+    text-align: center; 
+    transition: transform 0.3s ease; 
+}
+
+.doctor-mini-card:hover {
+    transform: translateY(-5px);
+}
+
+.doctor-mini-card img { 
+    width: 80px; 
+    height: 80px; 
+    border-radius: 50%; 
+    margin-bottom: 15px; 
+    border: 3px solid #f0f7f7; 
+}
+
+.status-active { 
+    color: var(--success); 
+    font-size: 10px; 
+    font-weight: bold; 
+    text-transform: uppercase; 
+    display: block; 
+    margin-top: 5px; 
+}
+
+/* --- BUTTONS --- */
+.add-btn { 
+    background: var(--primary-color); 
+    color: white; 
+    border: none; 
+    padding: 12px 25px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    transition: background 0.3s;
+}
+
+.add-btn:hover {
+    background: var(--accent-hover);
+}
+
+.btn-approve { 
+    background: var(--success); 
+    color: white; 
+    border: none; 
+    padding: 8px 15px; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-weight: 600;
+}
+
+.btn-reject { 
+    background: var(--danger); 
+    color: white; 
+    border: none; 
+    padding: 8px 15px; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    font-weight: 600;
+}
+
+.action-btns {
+    display: flex;
+    gap: 8px;
+}
+
+/* --- MODAL STYLING --- */
+.modal { 
+    display: none; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.5); 
+    backdrop-filter: blur(4px); 
+    z-index: 1000; 
+}
+
+.modal-content { 
+    background: white; 
+    width: 400px; 
+    margin: 10vh auto; 
+    padding: 30px; 
+    border-radius: 15px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.input-group input { 
+    width: 100%; 
+    padding: 12px; 
+    margin-bottom: 15px; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: var(--primary-color);
+}
+
+.modal-actions { 
+    display: flex; 
+    justify-content: flex-end; 
+    gap: 10px; 
+}
+
+.btn-cancel {
+    background: #eee;
+    color: #666;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-save {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.role-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+}
+.role-badge.doctor { background: #e0f2f1; color: #008b8b; }
+.role-badge.receptionist { background: #f3e5f5; color: #7b1fa2; }
